@@ -14,17 +14,17 @@ const Card: FC<CardProps> = ({ children, className, ...rest }) => {
       {...rest}
     >
       <div
-        className="top-0 left-0 z-10 absolute bg-contain bg-no-repeat rounded-t-2xl w-full h-full"
+        className="top-0 left-0 z-[1] absolute bg-contain bg-no-repeat rounded-t-2xl w-full h-full"
         style={{ backgroundImage: `url(${FlowTop})` }}
       ></div>
       <img
-        className="relative z-20 w-full"
+        className="relative z-[2] w-full"
         src={FlowerImage}
         alt="Flower Image"
       />
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-[3]">{children}</div>
       <div
-        className="bottom-0 left-0 z-[1] absolute bg-contain bg-no-repeat bg-bottom rounded-b-2xl w-full h-full"
+        className="bottom-0 left-0 absolute bg-contain bg-no-repeat bg-bottom rounded-b-2xl w-full h-full"
         style={{ backgroundImage: `url(${FlowBottom})` }}
       ></div>
     </div>

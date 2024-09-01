@@ -41,7 +41,7 @@ const NavBar: FC = () => {
     };
   }, []);
   return (
-    <div className="bottom-0 z-50 fixed w-full">
+    <div className="bottom-0 z-40 fixed w-full">
       <nav className="flex justify-center gap-2 bg-white shadow-lg mx-auto px-4 py-2 rounded-t-lg max-w-72">
         <div
           className={`inline-block p-2 rounded-lg transition-colors duration-200 ${

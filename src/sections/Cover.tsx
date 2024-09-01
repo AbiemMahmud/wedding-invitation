@@ -29,28 +29,28 @@ const Cover: FC = () => {
         <div className="flex justify-center items-center gap-2">
           <div className="">
             <p className="text-pink-700 text-3xl font-bold" id="days">
-              7
+              00
             </p>
             <p>HARI</p>
           </div>
           <p className="text-pink-700 text-3xl self-start font-bold">:</p>
           <div className="">
             <p className="text-pink-700 text-3xl font-bold " id="hours">
-              09
+              00
             </p>
             <p>JAM</p>
           </div>
           <p className="text-pink-700 text-3xl self-start font-bold">:</p>
           <div className="">
             <p className="text-pink-700 text-3xl font-bold" id="minutes">
-              32
+              00
             </p>
             <p>MENIT</p>
           </div>
           <p className="text-pink-700 text-3xl self-start font-bold">:</p>
           <div className="">
             <p className="text-pink-700 text-3xl font-bold" id="seconds">
-              18
+              00
             </p>
             <p>DETIK</p>
           </div>

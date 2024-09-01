@@ -22,7 +22,7 @@ const DetailGrooms = () => {
             ></div>
           </div>
           <h1 className="font-display text-5xl mb-4">Ahmad Fauzi Maulana</h1>
-          <p className="mb-4">Putra Dari Bapak Hendra & Ibu Nawiyah</p>
+          <p className="mb-4">Putra Ke-2 Dari Bapak Hendra & Ibu Nawiyah</p>
           <a href="https://www.instagram.com/fauziiimaulanaaa" target="_blank">
             <div className="size-12 bg-amber-200 flex justify-center cursor-pointer items-center rounded-full mx-auto">
               <Instagram size={24} className="" />
@@ -40,7 +40,7 @@ const DetailGrooms = () => {
             ></div>
           </div>
           <h1 className="font-display text-5xl mb-4">Putri Patrisia</h1>
-          <p className="mb-4">Putri Dari Bapak Mamat & Ibu Nancuh</p>
+          <p className="mb-4">Putri Ke-3 Dari Bapak Mamat & Ibu Nancuh</p>
           <a href="https://www.instagram.com/putri.ptrcia" target="_blank">
             <div className="cursor-pointer size-12 bg-amber-200 flex justify-center items-center rounded-full mx-auto">
               <Instagram size={24} className="" />
