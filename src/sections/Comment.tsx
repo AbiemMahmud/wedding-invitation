@@ -1,44 +1,50 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import Card from "../components/Card";
 import CommentBubble from "../components/CommentBubble";
-import { Prisma, PrismaClient } from "@prisma/client";
-
-interface IComment {
-  id: number;
-  name: string;
-  text: string;
-}
+import supabase from "src/config/supabase";
 
 const Comment = () => {
-  const prisma = new PrismaClient();
-
   const [comments, setComments] = useState<IComment[]>([]);
+  const [name, setName] = useState("");
+  const [text, setText] = useState("");
   const nameRef = useRef("");
   const textRef = useRef("");
 
-  const submitForm = (e: FormEvent) => {
+  const submitForm = async (e: FormEvent) => {
     e.preventDefault();
-    const name = nameRef.current.trim();
-    const text = textRef.current.trim();
-    if (name === "" || text === "") {
+    const trimName = name.trim();
+    const trimText = text.trim();
+
+    if (trimName === "" || trimText === "") {
+      console.log(name);
+      console.log(text);
+
       alert("Mohon isi dengan nama dan komentar / doa");
       return;
     }
-    prisma.comment.create({
-      data: {
-        name: name,
-        text: text,
-      },
-    });
+
+    const { data, error } = await supabase
+      .from("Comment")
+      .insert({ name: name, text: text })
+      .select();
+
+    if (data) {
+      setName("");
+      setText("");
+      setComments([...comments, ...data]);
+    }
   };
 
   useEffect(() => {
-    const loadComments = async () => {
-      const comments = await prisma.comment.findMany();
-      setComments(comments);
+    const getComments = async () => {
+      const { data, error } = await supabase.from("Comment").select();
+
+      if (data) {
+        setComments(data);
+      }
     };
 
-    loadComments();
+    getComments();
   }, []);
 
   return (
@@ -48,7 +54,8 @@ const Comment = () => {
           <h1 className="mb-8 font-display text-3xl">Ucapan & Doa</h1>
           <div className="flex flex-col gap-2">
             <input
-              onChange={(e) => (nameRef.current = e.target.value)}
+              onChange={(e) => setName(e.target.value)}
+              value={name}
               type="text"
               name="name"
               id="name"
@@ -56,7 +63,8 @@ const Comment = () => {
               placeholder="Nama Anda"
             />
             <textarea
-              onChange={(e) => (textRef.current = e.target.value)}
+              onChange={(e) => setText(e.target.value)}
+              value={text}
               name="comment"
               id="comment"
               className="bg-amber-200 p-2 rounded-md h-52"
@@ -69,10 +77,11 @@ const Comment = () => {
               className="bg-amber-600 p-2 rounded-md cursor-pointer"
             />
           </div>
-          <div className="flex flex-col gap-2 my-4 h-72 overflow-scroll">
-            <CommentBubble />
-            <CommentBubble />
-            <CommentBubble />
+          <div className="flex flex-col gap-2 my-4 h-72 overflow-y-scroll">
+            {comments &&
+              comments.map((comment) => {
+                return <CommentBubble comment={comment} key={comment.id} />;
+              })}
           </div>
         </div>
       </Card>

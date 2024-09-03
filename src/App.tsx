@@ -29,13 +29,20 @@ import { useEffect } from "react";
  * ornamen/dekorasi selesai
  * gallery selesai
  *
+ * 3/9:
+ * comment, kurang format waktu
+ * modal selesai
+ * toast selesai
+ * animasi modal dan toast
+ * onclick copy rekening done
+ *
  * Todo:
  * lokasi dan calendar perlu di ralat
  * Fungsi gallery/carousel (done)
  * Tambah fungsi untuk buka undangan
  * Tambah layout modal untuk musik
- * Tambah modal untuk gift
- * Sambung ke database untuk comment
+ * Tambah modal untuk gift (done)
+ * Sambung ke database untuk comment (kurang format waktu)
  * Link instagram, lokasi, dll (done)
  * Asset yang akan digunakan (done)
  * Tambah ornamen wedding-ish untuk dekorasi (done)
