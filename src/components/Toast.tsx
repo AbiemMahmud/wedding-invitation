@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useRef, useState } from "react";
+import { FC, ReactNode, useEffect, useRef } from "react";
 import "./styles/animation.css";
 import ReactDOM from "react-dom";
 
@@ -20,11 +20,11 @@ const Toast: FC<ToastProps> = ({ children, show }) => {
   };
 
   useEffect(() => {
-    hasMounted.current = true;
+    setTimeout(() => (hasMounted.current = true), 3000);
   }, []);
   return ReactDOM.createPortal(
     <div
-      className={`${getAnimationClass()} p-4 bg-slate-900/70 -translate-x-1/2 left-1/2 fixed z-50 text-center text-slate-100 bottom-10 min-w-9 toast`}
+      className={`${getAnimationClass()} p-4 py-2 rounded-lg bg-slate-900/70 -translate-x-1/2 left-1/2 fixed z-50 text-center text-slate-100 bottom-10 min-w-9 toast`}
     >
       {children}
     </div>,

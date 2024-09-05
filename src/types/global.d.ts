@@ -4,3 +4,10 @@ declare interface IComment {
   text: string;
   created_at: string | null;
 }
+
+declare global {
+  interface Window {
+    onYouTubeIframeAPIReady: () => void;
+  }
+  var YT: any;
+}

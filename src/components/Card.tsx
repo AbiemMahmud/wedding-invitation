@@ -10,7 +10,7 @@ interface CardProps extends ComponentProps<"div"> {
 const Card: FC<CardProps> = ({ children, className, ...rest }) => {
   return (
     <div
-      className={`${className} relative max-w-2xl mx-auto mb-4 bg-white shadow-md shadow-slate-800/30 rounded-2xl`}
+      className={`${className} relative max-w-2xl mx-auto mb-4 bg-white shadow-md shadow-slate-800/30 rounded-2xl entrance`}
       {...rest}
     >
       <div
@@ -18,7 +18,7 @@ const Card: FC<CardProps> = ({ children, className, ...rest }) => {
         style={{ backgroundImage: `url(${FlowTop})` }}
       ></div>
       <img
-        className="relative z-[2] w-full"
+        className="relative z-[2] mx-auto w-3/4"
         src={FlowerImage}
         alt="Flower Image"
       />

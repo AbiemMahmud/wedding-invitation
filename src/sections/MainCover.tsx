@@ -1,10 +1,16 @@
 import { MailOpen } from "lucide-react";
+import { useSetPlay } from "src/contexts/PlayContext";
+import FlowMain from "@assets/decorations/flow-main1.png";
+import FlowMain2 from "@assets/decorations/flow-main2.png";
+import FlowerImg from "@assets/decorations/flower2.png";
 
 const MainCover = () => {
+  const setPlay = useSetPlay();
   const openInvitation = () => {
+    setPlay(true);
     const element = document.getElementById("cover");
     if (element) {
-      const toY = element.getBoundingClientRect().top - 15;
+      const toY = element.getBoundingClientRect().top + 150;
       window.scrollTo({ top: toY, behavior: "smooth" });
     }
   };
@@ -12,20 +18,40 @@ const MainCover = () => {
   return (
     <div
       id="main-cover"
-      className={`flex justify-center items-center bg-amber-300 bg-center bg-cover w-full h-screen font-body text-center`}
+      className={`flex justify-center items-center bg-slate-50 bg-center relative bg-cover w-full h-screen font-body text-center`}
       // style={{ backgroundImage: `url(${Cover})` }}
     >
-      <div>
+      <div
+        className="top-0 absolute bg-contain bg-no-repeat w-full h-5/6"
+        style={{ backgroundImage: `url(${FlowMain})` }}
+      ></div>
+      <div
+        className="right-0 bottom-0 absolute bg-contain bg-no-repeat bg-right-bottom w-full max-w-56 h-2/6"
+        style={{ backgroundImage: `url(${FlowMain2})` }}
+      ></div>
+      <div
+        className="right-0 top-0 absolute bg-contain bg-no-repeat bg-right-top w-full max-h-96 h-full"
+        style={{ backgroundImage: `url(${FlowerImg})` }}
+      ></div>
+      <div
+        className="left-0 bottom-0 absolute bg-contain bg-no-repeat rotate-180 bg-right-top w-full max-h-96 h-full"
+        style={{ backgroundImage: `url(${FlowerImg})` }}
+      ></div>
+      <div className=""></div>
+      <div className="z-10">
         <div className="mb-16">
-          <h1>Undangan Pernikahan</h1>
-          <br />
-          <h1 className="font-display text-6xl">Ahmad Fauzi Maulana</h1>
-          <h1 className="font-display text-6xl">&</h1>
-          <h1 className="font-display text-6xl">Putri Patrisia</h1>
+          <h1 className="my-8">Undangan Pernikahan</h1>
+          <h1 className="my-2 font-display text-2xl sm:text-5xl">
+            Ahmad Fauzi
+          </h1>
+          <h1 className="my-2 font-display text-2xl sm:text-5xl">&</h1>
+          <h1 className="my-2 font-display text-2xl sm:text-5xl">
+            Putri Patrisia
+          </h1>
         </div>
         <div>
           <button
-            className="flex items-center gap-2 bg-white hover:bg-slate-400 mx-auto px-4 py-1 rounded-2xl w-auto hover:text-slate-200 transition-colors duration-200 hover"
+            className="flex items-center gap-2 bg-white border border-slate-400 hover:bg-slate-400 mx-auto px-4 py-1 rounded-2xl w-auto hover:text-slate-200 transition-colors duration-200 hover"
             onClick={openInvitation}
           >
             <MailOpen strokeWidth={1} size={16} />

@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": ".",
   "scripts": {
     "dev": "vite",
-    "local": "vite --host 192.168.1.13",
+    "local": "vite --host 192.168.1.5",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -15,7 +16,8 @@
     "jquery": "^3.7.1",
     "lucide-react": "^0.436.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-player": "^2.16.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

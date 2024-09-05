@@ -8,9 +8,10 @@ import MainCover from "./sections/MainCover";
 import Comment from "./sections/Comment";
 import Closing from "./sections/Closing";
 import NavBar from "./components/NavBar";
-import Modal from "./components/Modal";
-import { CircleX } from "lucide-react";
+import $ from "jquery";
 import { useEffect } from "react";
+import PlayContext from "./contexts/PlayContext";
+import { ChevronUp } from "lucide-react";
 
 /**
  * Desain awal website undangan pernikahan
@@ -35,6 +36,8 @@ import { useEffect } from "react";
  * toast selesai
  * animasi modal dan toast
  * onclick copy rekening done
+ * animasi entrance selesai
+ * format date time selesai
  *
  * Todo:
  * lokasi dan calendar perlu di ralat
@@ -42,17 +45,43 @@ import { useEffect } from "react";
  * Tambah fungsi untuk buka undangan
  * Tambah layout modal untuk musik
  * Tambah modal untuk gift (done)
- * Sambung ke database untuk comment (kurang format waktu)
+ * Sambung ke database untuk comment (done)
  * Link instagram, lokasi, dll (done)
  * Asset yang akan digunakan (done)
  * Tambah ornamen wedding-ish untuk dekorasi (done)
  * (opt) perbaiki desain dan layout / standarisasi
  */
 function App() {
+  // Fungsi untuk handle animasi entrance
+  // Saat sebuah elemen terlihat di viewport
+  const scrollEffect = () => {
+    const elements = document.querySelectorAll(".entrance");
+    const triggerBottom = (window.innerHeight * 5) / 6;
+    if (elements) {
+      elements.forEach((element) => {
+        const boxTop = element.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          element.classList.add("show");
+        } else {
+          element.classList.remove("show");
+        }
+      });
+    }
+  };
+
+  useEffect(() => {
+    $(window).on("scroll", scrollEffect);
+
+    scrollEffect();
+
+    return () => {
+      $(window).off();
+    };
+  }, []);
   return (
-    <>
+    <PlayContext>
       <MainCover />
-      <main className="p-4 w-full font-body">
+      <main className="mb-12 p-4 w-full font-body">
         <Cover />
         <Greeting />
         <DetailGrooms />
@@ -63,9 +92,27 @@ function App() {
         <Comment />
         <Closing />
       </main>
-
+      <UpArrowButton />
       <NavBar />
-    </>
+    </PlayContext>
+  );
+}
+
+function UpArrowButton() {
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div
+      className="right-6 bottom-14 fixed bg-green-600 p-2 rounded-lg cursor-pointer navbar"
+      onClick={scrollTop}
+    >
+      <ChevronUp />
+    </div>
   );
 }
 

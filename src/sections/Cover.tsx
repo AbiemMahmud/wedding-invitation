@@ -11,9 +11,13 @@ const Cover: FC = () => {
       <div>
         <div className="mb-16">
           <h1 className="mb-6">Undangan Pernikahan</h1>
-          <h1 className="font-display text-5xl">Ahmad Fauzi Maulana</h1>
-          <h1 className="font-display text-5xl my-4">&</h1>
-          <h1 className="font-display text-5xl">Putri Patrisia</h1>
+          <h1 className="font-display sm:text-5xl text-3xl sm:w-full w-2/3 mx-auto entrance">
+            Ahmad Fauzi Maulana
+          </h1>
+          <h1 className="font-display sm:text-5xl text-3xl my-4 entrance">&</h1>
+          <h1 className="font-display sm:text-5xl text-3xl entrance">
+            Putri Patrisia
+          </h1>
         </div>
         <div className="mb-4 flex gap-8 justify-center">
           <div>

@@ -6,7 +6,6 @@ import {
   useRef,
   useState,
 } from "react";
-import $ from "jquery";
 import "./styles/animation.css";
 import ReactDOM from "react-dom";
 
@@ -38,12 +37,20 @@ export const Modal: FC<ModalProps> = ({ children, trigger, id, ...rest }) => {
 
   useEffect(() => {
     hasMounted.current = true;
-    window.onload = () => {
-      $(".modal-close").on("click", triggerHandle);
+    const el = document.getElementsByClassName("modal-close");
 
-      return () => {
-        $(".modal-close").off("click");
-      };
+    if (el.length) {
+      for (let i = 0; i < el.length; i++) {
+        el[i].addEventListener("click", triggerHandle);
+      }
+    }
+
+    return () => {
+      if (el.length) {
+        for (let i = 0; i < el.length; i++) {
+          el[i].removeEventListener("click", triggerHandle);
+        }
+      }
     };
   }, []);
 

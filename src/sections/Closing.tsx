@@ -2,7 +2,7 @@ import Card from "../components/Card";
 
 const Closing = () => {
   return (
-    <Card className="py-20 p-4 text-center">
+    <Card className="py-20 p-1 text-center">
       <div className="mx-auto w-10/12">
         <p>
           Kami sangat berharap saudara/i dapat bergabung dengan kami dalam acara
@@ -13,15 +13,15 @@ const Closing = () => {
 
         <div className="my-8">
           <p>Hormat Kami</p>
-          <p className="font-bold">Adam & Eve</p>
+          <p className="mt-4 font-bold">Ahmad Fauzi Maulana & Putri Patrisia</p>
         </div>
 
-        <div>
+        {/* <div>
           <p>Turut Mengundang:</p>
           <p className="font-bold">1. Bapak Sopian (RT02)</p>
           <p className="font-bold">1. Bapak Sopian (RT02)</p>
           <p className="font-bold">1. Bapak Sopian (RT02)</p>
-        </div>
+        </div> */}
       </div>
     </Card>
   );

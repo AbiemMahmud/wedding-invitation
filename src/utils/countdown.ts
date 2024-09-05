@@ -1,4 +1,4 @@
-var countDownDate = new Date("Sep 29, 2024 09:00:00").getTime();
+var countDownDate = new Date("Oct 12, 2024 09:00:00").getTime();
 
 // Update the count down every 1 second
 export function countDownHandler() {
@@ -24,8 +24,6 @@ export function countDownHandler() {
     hoursElement.innerHTML = hours.toString();
     minutesElement.innerHTML = minutes.toString();
     secondsElement.innerHTML = seconds.toString();
-  } else {
-    console.log("Element no found");
   }
 
   if (distance < 0) {

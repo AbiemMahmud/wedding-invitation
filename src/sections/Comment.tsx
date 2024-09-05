@@ -1,14 +1,14 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Card from "../components/Card";
 import CommentBubble from "../components/CommentBubble";
 import supabase from "src/config/supabase";
+import Toast from "src/components/Toast";
 
 const Comment = () => {
+  const [showToast, setShowToast] = useState(false);
   const [comments, setComments] = useState<IComment[]>([]);
   const [name, setName] = useState("");
   const [text, setText] = useState("");
-  const nameRef = useRef("");
-  const textRef = useRef("");
 
   const submitForm = async (e: FormEvent) => {
     e.preventDefault();
@@ -16,14 +16,12 @@ const Comment = () => {
     const trimText = text.trim();
 
     if (trimName === "" || trimText === "") {
-      console.log(name);
-      console.log(text);
-
-      alert("Mohon isi dengan nama dan komentar / doa");
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
       return;
     }
 
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from("Comment")
       .insert({ name: name, text: text })
       .select();
@@ -31,13 +29,16 @@ const Comment = () => {
     if (data) {
       setName("");
       setText("");
-      setComments([...comments, ...data]);
+      setComments([...data, ...comments]);
     }
   };
 
   useEffect(() => {
     const getComments = async () => {
-      const { data, error } = await supabase.from("Comment").select();
+      const { data } = await supabase
+        .from("Comment")
+        .select()
+        .order("created_at", { ascending: false });
 
       if (data) {
         setComments(data);
@@ -51,15 +52,15 @@ const Comment = () => {
     <div id="comment">
       <Card className="py-20 p-4 text-center">
         <div className="mx-auto w-10/12">
-          <h1 className="mb-8 font-display text-3xl">Ucapan & Doa</h1>
-          <div className="flex flex-col gap-2">
+          <h1 className="mb-8 font-display text-3xl entrance">Ucapan & Doa</h1>
+          <div className="flex flex-col gap-2 entrance">
             <input
               onChange={(e) => setName(e.target.value)}
               value={name}
               type="text"
               name="name"
               id="name"
-              className="bg-amber-200 p-2 rounded-md"
+              className="bg-amber-100 p-2 rounded-md"
               placeholder="Nama Anda"
             />
             <textarea
@@ -67,17 +68,17 @@ const Comment = () => {
               value={text}
               name="comment"
               id="comment"
-              className="bg-amber-200 p-2 rounded-md h-52"
+              className="bg-amber-100 p-2 rounded-md h-52"
               placeholder="Tuliskan ucapan dan doa"
             />
             <input
               onClick={(e) => submitForm(e)}
               type="submit"
               value="Kirimkan Ucapan"
-              className="bg-amber-600 p-2 rounded-md cursor-pointer"
+              className="bg-amber-400 hover:bg-amber-600 p-2 rounded-md duration-300 cursor-pointer"
             />
           </div>
-          <div className="flex flex-col gap-2 my-4 h-72 overflow-y-scroll">
+          <div className="flex flex-col gap-2 my-4 h-72 overflow-y-scroll entrance">
             {comments &&
               comments.map((comment) => {
                 return <CommentBubble comment={comment} key={comment.id} />;
@@ -85,6 +86,7 @@ const Comment = () => {
           </div>
         </div>
       </Card>
+      <Toast show={showToast}>Mohon is field yang tersedia</Toast>
     </div>
   );
 };

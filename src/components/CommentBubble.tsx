@@ -1,5 +1,6 @@
 import { Clock } from "lucide-react";
 import { FC } from "react";
+import { formatToLocal } from "src/utils/datetime";
 
 interface CommentBubbleProps {
   comment: IComment;
@@ -11,7 +12,7 @@ const CommentBubble: FC<CommentBubbleProps> = ({ comment }) => {
         <h2 className="font-semibold text-green-800 text-sm">{comment.name}</h2>
         <p className="flex items-center gap-2 my-1">
           <Clock size={12} />
-          <span className="text-xs">{comment.created_at}</span>
+          <span className="text-xs">{formatToLocal(comment.created_at)}</span>
         </p>
       </div>
       <div className="">

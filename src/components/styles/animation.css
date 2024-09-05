@@ -49,17 +49,17 @@
 }
 
 .fade-in {
-  animation: fadeIn 0.2s forwards;
-  -webkit-animation: fadeIn 0.2s forwards;
-  -o-animation: fadeIn 0.2s forwards;
-  -moz-animation: fadeIn 0.2s forwards;
+  animation: fadeIn 0.5s forwards;
+  -webkit-animation: fadeIn 0.5s forwards;
+  -o-animation: fadeIn 0.5s forwards;
+  -moz-animation: fadeIn 0.5s forwards;
 }
 
 .fade-out {
-  animation: fadeOut 0.2s forwards;
-  -webkit-animation: fadeOut 0.2s forwards;
-  -o-animation: fadeOut 0.2s forwards;
-  -moz-animation: fadeOut 0.2s forwards;
+  animation: fadeOut 0.5s forwards;
+  -webkit-animation: fadeOut 0.5s forwards;
+  -o-animation: fadeOut 0.5s forwards;
+  -moz-animation: fadeOut 0.5s forwards;
 }
 
 .first-render {

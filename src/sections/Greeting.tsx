@@ -2,8 +2,8 @@ import Card from "../components/Card";
 
 const Greeting = () => {
   return (
-    <Card className="py-20 p-4 text-center">
-      <div>
+    <Card className="py-20 p-8 md:p-16 text-center">
+      <div className="entrance">
         <p className="mb-4 text-xl">
           يٰٓاَيُّهَا النَّاسُ اِنَّا خَلَقْنٰكُمْ مِّنْ ذَكَرٍ وَّاُنْثٰى
           وَجَعَلْنٰكُمْ شُعُوْبًا وَّقَبَاۤىِٕلَ لِتَعَارَفُوْا ۚ اِنَّ

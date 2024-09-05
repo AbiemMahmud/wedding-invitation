@@ -6,7 +6,7 @@ import gallery_5 from "@assets/images/asset5.jpg";
 import gallery_6 from "@assets/images/asset6.jpg";
 import gallery_7 from "@assets/images/asset7.jpg";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./styles/carousel.css";
 
 interface PictureListProps {
@@ -50,7 +50,7 @@ const Carousel = () => {
       />
 
       {/* Controller and display */}
-      <div className="flex justify-between items-center gap-2 w-full">
+      <div className="flex justify-between items-center gap-2 w-full entrance">
         {/* Left Button */}
         <button
           disabled={currentShow === 0}
@@ -75,7 +75,7 @@ const Carousel = () => {
 
 function PictureList({ pictures, current, onClickList }: PictureListProps) {
   return (
-    <div className="my-4 p-4 whitespace-nowrap overflow-x-auto">
+    <div className="my-4 p-4 whitespace-nowrap overflow-x-auto entrance">
       {pictures.map((pic, index) => {
         return (
           <div
