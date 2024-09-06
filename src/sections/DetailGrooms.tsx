@@ -30,7 +30,7 @@ const DetailGrooms = () => {
             Putra Ke-2 Dari Bapak Hendra & Ibu Nawiyah
           </p>
           <a href="https://www.instagram.com/fauziiimaulanaaa" target="_blank">
-            <div className="size-12 bg-amber-300 hover:bg-amber-500 flex justify-center cursor-pointer items-center rounded-full mx-auto entrance">
+            <div className="size-12 bg-amber-300 hover:bg-amber-500 inline-flex justify-center cursor-pointer items-center rounded-full mx-auto entrance">
               <Instagram size={24} className="" />
             </div>
           </a>
@@ -52,7 +52,7 @@ const DetailGrooms = () => {
             Putri Ke-3 Dari Bapak Mamat & Ibu Nancuh
           </p>
           <a href="https://www.instagram.com/putri.ptrcia" target="_blank">
-            <div className="cursor-pointer size-12 bg-amber-300 hover:bg-amber-500 flex justify-center items-center rounded-full mx-auto entrance">
+            <div className="cursor-pointer size-12 bg-amber-300 hover:bg-amber-500 inline-flex justify-center items-center rounded-full mx-auto entrance">
               <Instagram size={24} className="" />
             </div>
           </a>

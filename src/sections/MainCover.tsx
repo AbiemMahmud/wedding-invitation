@@ -3,9 +3,11 @@ import { useSetPlay } from "src/contexts/PlayContext";
 import FlowMain from "@assets/decorations/flow-main1.png";
 import FlowMain2 from "@assets/decorations/flow-main2.png";
 import FlowerImg from "@assets/decorations/flower2.png";
+import { useEffect, useState } from "react";
 
 const MainCover = () => {
-  const setPlay = useSetPlay();
+  const [nama, setNama] = useState("");
+  const setPlay = useSetPlay(); // konteks untuk memutar musik
   const openInvitation = () => {
     setPlay(true);
     const element = document.getElementById("cover");
@@ -14,6 +16,16 @@ const MainCover = () => {
       window.scrollTo({ top: toY, behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    const queryString = window.location.search;
+    const queryObj = new URLSearchParams(queryString);
+    const nama_undangan = queryObj.get("kepada");
+
+    if (nama_undangan) {
+      setNama(nama_undangan);
+    }
+  }, []);
 
   return (
     <div
@@ -39,7 +51,7 @@ const MainCover = () => {
       ></div>
       <div className=""></div>
       <div className="z-10">
-        <div className="mb-16">
+        <div className="">
           <h1 className="my-8">Undangan Pernikahan</h1>
           <h1 className="my-2 font-display text-2xl sm:text-5xl">
             Ahmad Fauzi
@@ -48,6 +60,14 @@ const MainCover = () => {
           <h1 className="my-2 font-display text-2xl sm:text-5xl">
             Putri Patrisia
           </h1>
+        </div>
+        <div className="my-16">
+          {nama && (
+            <>
+              <p className="mb-2">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+              <p className="font-semibold text-xl">{nama}</p>
+            </>
+          )}
         </div>
         <div>
           <button

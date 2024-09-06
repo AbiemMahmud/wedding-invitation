@@ -78,17 +78,30 @@ const Comment = () => {
               className="bg-amber-400 hover:bg-amber-600 p-2 rounded-md duration-300 cursor-pointer"
             />
           </div>
-          <div className="flex flex-col gap-2 my-4 h-72 overflow-y-scroll entrance">
-            {comments &&
-              comments.map((comment) => {
-                return <CommentBubble comment={comment} key={comment.id} />;
-              })}
-          </div>
+
+          {comments.length !== 0 ? (
+            <CommentsDisplay comments={comments} />
+          ) : (
+            <div className="m-8">
+              <p className="my-2">Komentar masih kosong</p>
+              <p className="">Jadilah yang pertama</p>
+            </div>
+          )}
         </div>
       </Card>
       <Toast show={showToast}>Mohon is field yang tersedia</Toast>
     </div>
   );
 };
+
+function CommentsDisplay({ comments }: { comments: IComment[] }) {
+  return (
+    <div className="flex flex-col gap-2 my-4 max-h-72 overflow-y-auto entrance">
+      {comments.map((comment) => {
+        return <CommentBubble comment={comment} key={comment.id} />;
+      })}
+    </div>
+  );
+}
 
 export default Comment;

@@ -39,11 +39,24 @@ import { ChevronUp } from "lucide-react";
  * animasi entrance selesai
  * format date time selesai
  *
+ *
+ * 5/9:
+ * Musik dan controll selesai
+ * animasi navbar selesai
+ * main-cover selesai
+ * lokasi dan kalender selesai
+ *
+ * 6/9:
+ * kurangi delay pemutaran musik saat membuka undangan
+ * perbaiki display link instagram
+ * buat placeholder saat komentar kosong
+ * buat fungsi untuk menambah nama tujuan dari undangan dengan parameter kepada
+ *
  * Todo:
- * lokasi dan calendar perlu di ralat
+ * lokasi dan calendar perlu di ralat (done)
  * Fungsi gallery/carousel (done)
- * Tambah fungsi untuk buka undangan
- * Tambah layout modal untuk musik
+ * Tambah fungsi untuk buka undangan (done)
+ * Tambah layout modal untuk musik (done)
  * Tambah modal untuk gift (done)
  * Sambung ke database untuk comment (done)
  * Link instagram, lokasi, dll (done)
